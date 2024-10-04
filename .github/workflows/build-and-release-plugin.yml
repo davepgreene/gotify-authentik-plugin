@@ -25,7 +25,4 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag: ${{ github.ref }}
           files: plugin/authentik-plugin-amd64.so
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
