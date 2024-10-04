@@ -102,9 +102,8 @@ func (p *Plugin) webhookHandler(c *gin.Context) {
 			"Error parsing JSON message",
 			err.Error(),
 			7,
-			c.Request.Response.Request.RemoteAddr,
+			c.Request.RemoteAddr,
 		))
-		c.JSON(400, gin.H{"error": "Error parsing JSON message"})
 		return
 	}
 
@@ -114,10 +113,9 @@ func (p *Plugin) webhookHandler(c *gin.Context) {
 		title,
 		message,
 		priority,
-		c.Request.Response.Request.RemoteAddr,
+		c.Request.RemoteAddr,
 	))
 
-	c.JSON(200, gin.H{"status": "success"})
 }
 
 func NewGotifyPluginInstance(ctx plugin.UserContext) plugin.Plugin {

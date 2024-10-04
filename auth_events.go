@@ -83,8 +83,8 @@ func ReturnGotifyMessageFromAuthentikPayload(payload AuthentikWebhookPayload) (s
 			return "Error parsing login_failed data", err.Error(), 7
 		}
 
-		title := fmt.Sprintf("Login failed for %s", payload.EventUserUsername)
-		message := fmt.Sprintf("Logging attempt failed for user: %s \n\nFrom: %s, %s, %s \n\nFailed at stage: %s \n\nRequestID: %s", payload.EventUserUsername, data.Geo.City, data.Geo.Country, data.Geo.Continent, data.Stage.Name, data.HTTPRequest.RequestID)
+		title := fmt.Sprintf("Login failed for %s", data.Username)
+		message := fmt.Sprintf("Login attempt failed for user: %s \n\nFrom: %s, %s, %s (%s, %s)\n\nGeo:\n\n  - Long: %f\n\n  - Lat: %f\n\nFailed at stage: %s \n\nRequestID: %s", data.Username, data.Geo.City, data.Geo.Country, data.Geo.Continent, data.ASN.ASOrg, data.ASN.Network, data.Geo.Long, data.Geo.Lat, data.Stage.Name, data.HTTPRequest.RequestID)
 
 		return title, message, 8
 
