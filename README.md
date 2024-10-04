@@ -52,9 +52,12 @@ To configure the webhook transport in Authentik, follow these steps:
      - App: authentik Core
    - The rest of the configuration should remain empty.
 
-
-   
 Other Rules/Policies are currently not supported natively, but will still be displayed in Gotify without being parsed correctly.
+
+
+## Example login_failed Event
+
+![Example login_failed Event](example.png)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
