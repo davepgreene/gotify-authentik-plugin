@@ -19,8 +19,11 @@ I just could not work the mappings in authentik to work with gotify..
 2. **Build the plugin:**
    Navigate to the project directory and build the Go plugin using:
    ```bash
-   go build -buildmode=plugin -o authentik_plugin.so
+   docker run --rm -v "$PWD/.:/proj" -w /proj gotify/build:1.22.4-linux-amd64 \
+            go build -a -installsuffix cgo -ldflags "-w -s" -buildmode=plugin -o plugin/authentik-plugin-amd64.so /proj
    ```
+
+   or just download the plugin from the [releases](https://github.com/ckocyigit/gotify-authentik-plugin/releases) and copy the plugin into the gotify plugin directory
 
 3. **Configure Gotify:**
    - Place the generated `authentik_plugin.so` in the `plugins` folder of your Gotify instance.
