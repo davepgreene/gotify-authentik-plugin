@@ -94,7 +94,6 @@ func ReturnGotifyMessageFromAuthentikPayload(payload AuthentikWebhookPayload) (s
 		bodyContent = strings.ReplaceAll(bodyContent, "'", "\"")
 
 		if err := json.Unmarshal([]byte(bodyContent), &data); err != nil {
-			fmt.Println("Error parsing login data:", err)
 			return "Error parsing login_failed data", err.Error(), 7
 		}
 
