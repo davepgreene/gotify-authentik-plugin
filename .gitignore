@@ -1,6 +1,5 @@
-plugin
+build
 
 *.sh
 *.ps1
 *.json
-
